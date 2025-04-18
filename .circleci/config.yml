@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: cimg/base:stable
 
-    environment:
-      APP_ID: your-extension-id
+    # environment:
+    #   APP_ID: your-extension-id
     steps:
       - checkout
       - run:

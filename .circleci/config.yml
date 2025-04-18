@@ -10,6 +10,16 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y curl jq zip
+
+      - run:
+          name: Set Production Icon & Version
+          command: |
+            current_version=$(jq -r '.version' manifest.json)
+            major=$(echo "$current_version" | cut -d. -f1)
+            minor=$(echo "$current_version" | cut -d. -f2)
+            patch=$(echo "$current_version" | cut -d. -f3)
+            new_version="$major.$minor.$((patch + 1))"
+            jq --arg v "$new_version" '.version = $v | .action.default_icon = "icon.png"' manifest.json | sponge manifest.json
       - run:
           name: Package Extension
           command: zip -r tab-counter.zip . -x '*.git*' -x '*.circleci*' -x '*README.md' -x '*test/*'

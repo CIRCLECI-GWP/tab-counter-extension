@@ -9,7 +9,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo apt-get update
-            sudo apt-get install -y curl jq zip
+            sudo apt-get install -y curl jq zip moreutils
 
       - run:
           name: Set Production Icon & Version

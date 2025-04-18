@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Dependencies
+          name: Install Dependencies.
           command: |
             sudo apt-get update
             sudo apt-get install -y curl jq zip moreutils

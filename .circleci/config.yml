@@ -46,7 +46,7 @@ jobs:
               echo "❌ Publish failed:"
               cat publish_output.json
               exit 1
-            fi"
+            fi
 
 workflows:
   deploy:
